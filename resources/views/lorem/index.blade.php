@@ -17,6 +17,13 @@ such as a page specific stylesheets.
 
 @section('content')
     <h2>Lorem-Ipsum Generator.</h2>
+    <form method='POST' action='/lorem-ipsum'>
+        {{ csrf_field() }}
+        <label for="paragraph_count"># of Paragraphs (Max 99)</label>
+        <input id="paragraph_count" type='number' name='paragraph_count' value="1" min="1" max="99">
+        <br>
+        <input type='submit' value='Submit'>
+    </form>
 @stop
 
 

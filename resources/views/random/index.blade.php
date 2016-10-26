@@ -17,6 +17,16 @@ such as a page specific stylesheets.
 
 @section('content')
     <h2>Random User Generator.</h2>
+    <form method='POST' action='/random-user'>
+        {{ csrf_field() }}
+        <label for="user_count"># of Users (Max 99)</label>
+        <input id="user_count" type='number' name='user_count' value="1" min="1" max="99">
+        <br>
+        <label for='dob'>Include Date of Birth</label>
+        <input id="dob" type='checkbox' name='dob'>
+        <br>
+        <input type='submit' value='Submit'>
+    </form>
 @stop
 
 

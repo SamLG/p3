@@ -4,6 +4,7 @@ namespace p3\Http\Controllers;
 
 use p3\Http\Controllers\Controller;
 use \Rych\Random\Random;
+use Illuminate\Http\Request;
 
 class RandomController extends Controller
 {
@@ -42,5 +43,25 @@ class RandomController extends Controller
         //         break;
         // }
         // return 'Display Random-User page: '.$randomYear.'-'.$randomMonth.'-'.$randomDay;
+    }
+    public function submit(Request $request)
+    {
+        $usersArray = [];
+        $user_count = $request->input('user_count');
+        $dob = $request->input('dob');
+        if ($dob == "on"){
+            $dob = 'checked="checked"';
+        }
+        else {
+            $dob = '';
+        }
+        for ($i=0; $i < $user_count; $i++) {
+            $usersArray[$i] =
+        }
+        // $generator = new Generator();
+        // // paragraphs will be # chosen by user in form
+        // $paragraphs = $generator->getParagraphs($p);
+        // // $paragraphs = implode('<p>', $paragraphs);
+        return view('random.submit')->with('user_count', $user_count)->with('dob',$dob);
     }
 } # end of class

@@ -14,7 +14,8 @@
         <header>
             <a href="#content" class="sr-only">skip to content</a>
             <!--moon image by drkzin http://drkzin.deviantart.com/art/Moon-270917652 license: https://creativecommons.org/licenses/by-sa/3.0/ -->
-            <h1>Dummy Data</h1>
+            <!-- <h1><img alt="crash dummy 1" src="/images/dummy80pxRight.png"/>Dummy Data<img alt="crash dummy 2" src="/images/dummy80px.png"/></h1> -->
+            <img alt="Dummy Data" src="/images/Dummy_Data.png"/>
             <nav>
                 <ul>
                     <li><a href="/">Home</a></li>

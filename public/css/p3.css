@@ -17,10 +17,7 @@ body {
     /*added lines 18 to make footer sticky http://mystrd.at/modern-clean-css-sticky-footer/*/
     margin: 0 0 100px;
 }
-#pawpreciation {
-    /*background image by Larry Wentzel https://www.flickr.com/photos/wentzelepsy/3267936715 license:https://creativecommons.org/licenses/by/2.0/*/
-    background: url("../images/animals_light.jpg");
-}
+
 header {
     color: white;
     width: 100%;
@@ -33,26 +30,30 @@ header {
     can dictate z-index https://philipwalton.com/articles/what-no-one-told-you-about-z-index/*/
     z-index: 1;
 }
-header h1 {
+/*header h1 {
     /*google fonts*/
-    font-family: 'Great Vibes', cursive, serif;
+/*    font-family: 'Great Vibes', cursive, serif;
     font-size: 4em;
     font-weight: lighter;
-    margin: 0;
-    padding-top: 0.2em;
-    width: 30%;
+    margin: 0;*/
+    /*padding-top: 0.2em;*/
+    /*width: 40%;
     float: left;
     text-align: center;
+}*/
+/*changed title to img for better response with resizing, h1 was flowing too much*/
+header img {
+    width: 40%;
+    float: left;
+    margin: 0;
 }
 main {
     width: 80%;
-    padding: 7em 1em 1em 1em;
+    padding: 10em 1em 1em 1em;
     overflow: auto;
     margin: 0 auto;
 }
-main img {
-    border-radius: .5em;
-}
+
 main a {
     color: #000080;
 }
@@ -62,81 +63,11 @@ main a:hover {
 main a:visited {
     color: #26004d;
 }
-.floatright {
-    float: right;
-    margin: 0 0 1em 1em;
-}
-.floatleft {
-    float: left;
-    margin: 0 1em 1em 0;
-}
-.center {
-    display: block;
-    width: 100%;
-    margin: auto;
-}
-article:first-of-type {
-    width: 78%;
-    padding: 1em;
-    margin-right: 1em;
-    float:left;
-    background-color: rgba(185, 198, 212, 0.7);
-    -webkit-column-count: 2;
-   -moz-column-count: 2;
-        column-count: 2;
-        -webkit-column-rule: 1px solid grey;
-           -moz-column-rule: 1px solid grey;
-                column-rule: 1px solid grey;
-    border-radius: .5em;
-    -webkit-box-shadow: 13px 13px 10px -6px rgba(0,0,0,0.68);
-    -moz-box-shadow: 13px 13px 10px -6px rgba(0,0,0,0.68);
-    box-shadow: 13px 13px 10px -6px rgba(0,0,0,0.68);
-}
-aside, .side {
-    width:20%;
-    float: left;
-    margin-right: 0;
-    margin-bottom: 1em;
-    padding: 1em;
-    background-color: rgba(255, 255, 255, 0.6);
-    position: relative;
-    border-radius: .5em;
-    -webkit-box-shadow: 13px 13px 10px -6px rgba(0,0,0,0.68);
-    -moz-box-shadow: 13px 13px 10px -6px rgba(0,0,0,0.68);
-    box-shadow: 13px 13px 10px -6px rgba(0,0,0,0.68);
-}
-.resources article:first-of-type {
-    width:60%;
-    /*remove inherited column styling*/
-    -webkit-column-count: 1;
-   -moz-column-count: 1;
-        column-count: 1;
-        -webkit-column-rule: 0px solid grey;
-           -moz-column-rule: 0px solid grey;
-                column-rule: 0px solid grey;
-}
-.resources aside {
-    width:38%;
-}
-aside h2 {
-    font-size: 1.2em;
-}
-aside::after, .side::after {
-    content: "";
-    background: url(http://lorempixel.com/400/400/abstract);
-    opacity: 0.5;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
-    border-radius: .5em;
-}
+
 nav {
     font-size: 1.2em;
     font-weight: bold;
-    width: 70%;
+    width: 60%;
     float: left;
     padding-top: 2em;
 }
@@ -160,24 +91,7 @@ nav a:hover {
     color: black;
     background-color: rgba(185, 198, 212, 1);
 }
-caption {
-    font-weight: bold;
-    font-size: 1.5em;
-}
-table {
-    text-align: left;
-    font-size: .9em;
-    border: 1px black solid;
-}
-td, th {
-    padding: .3em;
-}
-table thead tr th, tr {
-    background: white;
-}
-tr:nth-of-type(odd) {
-    background: lightgrey;
-}
+
 footer {
     color: white;
     background: rgba(0, 0, 0, 0.9);
