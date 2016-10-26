@@ -11,42 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Or maybe you have a landing page that explains the purpose of the site and links to the two features on two different pages
+// So you’d maybe have `Route::get("/"….` (landing page), and `Route::get("/lorem-ipsum"….` and `Route::get("/random-user"….`
+// And then a corresponding post route for lorem-ipsum and random-user.
+// That’d be 5 routes total.
 
-# View all books
-Route::get('/books', function() {
+Route::get('/', 'HomeController@index')->name('index');
 
-})->name('books.index');
+Route::get('/lorem-ipsum', 'LoremController@index')->name('lorem-ipsum.index');
 
-# Display form to add a new book
-Route::get('/books/create', function() {
+Route::get('/random-user', 'RandomController@index')->name('random-user.index');
 
-})->name('books.create');
+Route::post('/lorem-ipsum', 'LoremController@submit')->name('lorem-ipsum.submit');
 
-# Process form to add a new book
-Route::post('/books', function() {
-
-})->name('books.store');
-
-# Display an individual book
-Route::get('/books/{book}', function($book) {
-
-})->name('books.show');
-
-# Display form to edit an individual book
-Route::get('/books/{book}/edit', function($book) {
-
-})->name('books.edit');
-
-# Process form to save edits to an individual book
-Route::put('/books/{book}', function($book) {
-
-})->name('books.update');
-
-# Delete an individual book
-Route::delete('/books/{book}', function($book) {
-
-})->name('books.destroy');
- //hello
+Route::post('/random-user', 'RandomController@submit')->name('random-user.submit');
