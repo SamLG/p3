@@ -28,8 +28,14 @@ such as a page specific stylesheets.
         <input type='submit' value='Submit'>
     </form>
     <br>
-    {{$user_count}}
-    {{$dob}}
+    <?php
+    foreach($usersArray as $user) {
+        echo '<h3>'.$user['name'].'</h3>';
+        if ($dob) {
+            echo '<p>Date of Birth: '.$user['dob'].'</p>';
+        }
+    }
+    ?>
 @stop
 
 
