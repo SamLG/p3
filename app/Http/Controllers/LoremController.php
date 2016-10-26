@@ -2,7 +2,7 @@
 
 namespace p3\Http\Controllers;
 
-use App/Http/Controllers/Controller;
+use App\Http\Controllers\Controller;
 
 class LoremController extends Controller
 {
