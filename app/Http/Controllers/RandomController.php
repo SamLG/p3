@@ -2,7 +2,7 @@
 
 namespace p3\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use p3\Http\Controllers\Controller;
 
 class RandomController extends Controller
 {
