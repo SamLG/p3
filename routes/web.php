@@ -25,3 +25,28 @@ Route::get('/random-user', 'RandomController@index')->name('random-user.index');
 Route::post('/lorem-ipsum', 'LoremController@submit')->name('lorem-ipsum.submit');
 
 Route::post('/random-user', 'RandomController@submit')->name('random-user.submit');
+
+// Route::get('/debugbar', function() {
+//
+//     $data = Array('foo' => 'bar');
+//     Debugbar::info($data);
+//     Debugbar::info('Current environment: '.App::environment());
+//     Debugbar::error('Error!');
+//     Debugbar::warning('Watch out…');
+//     Debugbar::addMessage('Another message', 'mylabel');
+//
+//     return 'Just demoing some of the features of Debugbar';
+//
+// });
+// Route::get('/random', function() {
+//
+//     $random = new Rych\Random\Random();
+//     return $random->getRandomString(8);
+//
+// });
+//
+// Route::get('random', function() {
+//     $generator = new Badcow\LoremIpsum\Generator();
+//     $paragraphs = $generator->getParagraphs(5);
+//     return implode('<p>', $paragraphs);
+// });
