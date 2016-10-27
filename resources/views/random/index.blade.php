@@ -20,7 +20,7 @@ such as a page specific stylesheets.
     <form method='POST' action='/random-user'>
         {{ csrf_field() }}
         <label for="user_count"># of Users (Max 99)</label>
-        <input id="user_count" type='number' name='user_count' value="1" min="1" max="99">
+        <input id="user_count" type='number' name='user_count' value="1" min="1" max="99" required>
         <!-- version to show server side validation
         <input id="user_count" name='user_count' value="1"> -->
         <p>Include:</p>

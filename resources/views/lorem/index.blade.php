@@ -28,7 +28,7 @@ such as a page specific stylesheets.
         {{ csrf_field() }}
         <label for="paragraph_count"># of Paragraphs (Max 99)</label>
         <!--  removed form html form validation to show server side validation-->
-        <!-- <input id="paragraph_count" type='number' name='paragraph_count' value="1" min="1" max="99"> -->
+        <!-- <input id="paragraph_count" type='number' name='paragraph_count' value="1" min="1" max="99" required> -->
         <input id="paragraph_count" name='paragraph_count' value="1">
         <br>
         <input type='submit' value='Submit'>
