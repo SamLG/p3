@@ -21,20 +21,20 @@ such as a page specific stylesheets.
         {{ csrf_field() }}
         <label for="user_count"># of Users (Max 99)</label>
         <input id="user_count" type='number' name='user_count' value="1" min="1" max="99">
-        <br>
-        <label for='dob'>Include Date of Birth</label>
+        <em>Include:</em>
+        <label for='dob'>Date of Birth</label>
         <input id="dob" type='checkbox' name='dob'>
         <br>
-        <label for='phone'>Include Phone #</label>
+        <label for='phone'>Phone #</label>
         <input id="phone" type='checkbox' name='phone'>
         <br>
-        <label for='email'>Include Email</label>
+        <label for='email'>Email</label>
         <input id="email" type='checkbox' name='email'>
         <br>
-        <label for='location'>Include Location</label>
+        <label for='location'>Location</label>
         <input id="location" type='checkbox' name='location'>
         <br>
-        <label for='profile'>Include Profile</label>
+        <label for='profile'>Profile</label>
         <input id="profile" type='checkbox' name='profile'>
         <br>
         <input type='submit' value='Submit'>
