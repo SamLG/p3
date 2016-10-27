@@ -25,6 +25,9 @@ such as a page specific stylesheets.
         <label for='dob'>Include Date of Birth</label>
         <input id="dob" type='checkbox' name='dob'>
         <br>
+        <label for='profile'>Include Profile</label>
+        <input id="profile" type='checkbox' name='profile'>
+        <br>
         <input type='submit' value='Submit'>
     </form>
 @stop

@@ -4,6 +4,7 @@ namespace p3\Http\Controllers;
 
 use p3\Http\Controllers\Controller;
 use \Rych\Random\Random;
+use \Badcow\LoremIpsum\Generator;
 use Illuminate\Http\Request;
 
 class RandomController extends Controller
@@ -15,7 +16,19 @@ class RandomController extends Controller
     {
         return view('random.index');
     }
-
+    function readCSV($csvFile){
+        $file = file_get_contents($csvFile);
+        $names = explode(",", $file);
+        $randomItem = array_rand($names);
+        return $names[$randomItem];
+    }
+    function randomName()
+    {
+        // $first = $this->randomArrayItem('CSV_Database_of_First_Names.csv');
+        // $last = $this->randomArrayItem('CSV_Database_of_Last_Names.csv');
+        // return $first.' '.$last;
+        return $this->readCSV('CSV_Database_of_First_Names.csv').' '.$this->readCSV('CSV_Database_of_Last_Names.csv');
+    }
     function random_dob()
     {
         $random = new Random();
@@ -49,6 +62,12 @@ class RandomController extends Controller
         $date = $randomYear.'-'.$randomMonth.'-'.$randomDay;
         return $date;
     }
+    function random_profile()
+    {
+        $generator = new Generator();
+        $paragraphs = $generator->getParagraphs(1);
+        return implode('<p>',$paragraphs);
+    }
     public function submit(Request $request)
     {
         $usersArray = [];
@@ -60,10 +79,18 @@ class RandomController extends Controller
         else {
             $dob = '';
         }
+        $profile = $request->input('profile');
+        if ($profile == "on"){
+            $profile = 'checked="checked"';
+        }
+        else {
+            $profile = '';
+        }
         for ($i=0; $i < $user_count; $i++) {
             $users = array(
-                "name" => "name_first_last",
+                "name" => $this->randomName(),
                 "dob" => $this->random_dob(),
+                "profile" => $this->random_profile(),
             );
             $usersArray[$i] = $users;
         }
@@ -71,6 +98,6 @@ class RandomController extends Controller
         // // paragraphs will be # chosen by user in form
         // $paragraphs = $generator->getParagraphs($p);
         // // $paragraphs = implode('<p>', $paragraphs);
-        return view('random.submit')->with('user_count', $user_count)->with('dob',$dob)->with('usersArray',$usersArray);
+        return view('random.submit')->with('user_count', $user_count)->with('dob',$dob)->with('profile', $profile)->with('usersArray',$usersArray);
     }
 } # end of class

@@ -25,6 +25,9 @@ such as a page specific stylesheets.
         <label for='dob'>Include Date of Birth</label>
         <input id="dob" type='checkbox' name='dob' {{$dob}}>
         <br>
+        <label for='profile'>Include Profile</label>
+        <input id="profile" type='checkbox' name='profile' {{$profile}}>
+        <br>
         <input type='submit' value='Submit'>
     </form>
     <br>
@@ -33,6 +36,9 @@ such as a page specific stylesheets.
         echo '<h3>'.$user['name'].'</h3>';
         if ($dob) {
             echo '<p>Date of Birth: '.$user['dob'].'</p>';
+        }
+        if ($profile) {
+            echo '<p>Profile: '.$user['profile'].'</p>';
         }
     }
     ?>
