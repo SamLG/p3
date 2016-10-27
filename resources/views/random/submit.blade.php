@@ -17,10 +17,20 @@ such as a page specific stylesheets.
 
 @section('content')
     <h2>Random User Generator.</h2>
+    @if($errors->get('user_count'))
+        <ul>
+            @foreach($errors->get('user_count') as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
+
     <form method='POST' action='/random-user'>
         {{ csrf_field() }}
         <label for="user_count"># of Users (Max 99)</label>
         <input id="user_count" type='number' name='user_count' value="{{$user_count}}" min="1" max="99">
+        <!-- version to show server side validation
+        <input id="user_count" type='number' value="{{$user_count}}"> -->
         <p>Include:</p>
         <label for='dob'>Date of Birth</label>
         <input id="dob" type='checkbox' name='dob' {{$dob}}>

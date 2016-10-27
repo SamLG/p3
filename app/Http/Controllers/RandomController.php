@@ -16,17 +16,33 @@ class RandomController extends Controller
     {
         return view('random.index');
     }
+    /**
+     * select random name value from csv of names
+     *
+     * @param $csvFile
+     * @return $names[$randomItem]
+     */
     function readCSV($csvFile){
         $file = file_get_contents($csvFile);
         $names = explode(",", $file);
         $randomItem = array_rand($names);
         return $names[$randomItem];
     }
+    /**
+     * create random name using readCSV() method to combine random first and last names
+     *
+     * @return $this->readCSV('CSV_Database_of_First_Names.csv').' '.$this->readCSV('CSV_Database_of_Last_Names.csv')
+     */
     function randomName()
     {
         // http://www.quietaffiliate.com/free-first-name-and-last-name-databases-csv-and-sql/
         return $this->readCSV('CSV_Database_of_First_Names.csv').' '.$this->readCSV('CSV_Database_of_Last_Names.csv');
     }
+    /**
+     * create random dob year-month-day
+     *
+     * @return $date
+     */
     function random_dob()
     {
         $random = new Random();
@@ -60,6 +76,11 @@ class RandomController extends Controller
         $date = $randomYear.'-'.$randomMonth.'-'.$randomDay;
         return $date;
     }
+    /**
+     * create random phone # with real area code
+     *
+     * @return $number
+     */
     function random_phone()
     {
         $random = new Random();
@@ -71,6 +92,12 @@ class RandomController extends Controller
         // echo $number;
         return $number;
     }
+    /**
+     * create random email using $name
+     *
+     * @param  $name
+     * @return $email
+     */
     function random_email($name)
     {
         $random = new Random();
@@ -81,6 +108,12 @@ class RandomController extends Controller
         // echo $email;
         return $email;
     }
+    /**
+     * create random location using sample data
+     *
+     * @param  $csvLocation
+     * @return $arrayp[$random][1]
+     */
     function random_location($csvLocation)
     {
         // https://www.uscitieslist.org/
@@ -98,12 +131,23 @@ class RandomController extends Controller
         // echo $array[$random][1];
         return $array[$random][1];
     }
+    /**
+     * create random paragraph for user profile
+     *
+     * @return implode('<p>',$paragraphs) paragraph broken up by <p>
+     */
     function random_profile()
     {
         $generator = new Generator();
         $paragraphs = $generator->getParagraphs(1);
         return implode('<p>',$paragraphs);
     }
+    /**
+     * confirm if checkbox item is on or not
+     *
+     * @param  $item
+     * @return $item
+     */
     function confirmCheck($item)
     {
         if ($item == "on"){
@@ -114,9 +158,20 @@ class RandomController extends Controller
         }
         return $item;
     }
+    /**
+     * Responds to requests to POST /random-user
+     * Show selection results
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function submit(Request $request)
     {
         $usersArray = [];
+        # Validate the request data
+        $this->validate($request, [
+            'user_count' => 'required|integer|between:1,99',
+        ]);
         $user_count = $request->input('user_count');
         $dob = $request->input('dob');
         $dob = $this->confirmCheck($dob);
@@ -140,10 +195,6 @@ class RandomController extends Controller
             );
             $usersArray[$i] = $users;
         }
-        // $generator = new Generator();
-        // // paragraphs will be # chosen by user in form
-        // $paragraphs = $generator->getParagraphs($p);
-        // // $paragraphs = implode('<p>', $paragraphs);
         return view('random.submit')->with('user_count', $user_count)->with('dob',$dob)->with('phone',$phone)->with('email', $email)->with('location', $location)->with('profile', $profile)->with('usersArray',$usersArray);
     }
 } # end of class

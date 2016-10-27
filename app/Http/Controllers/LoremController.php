@@ -16,6 +16,7 @@ class LoremController extends Controller
         return view('lorem.index');
     }
     /**
+     * Responds to requests to POST /lorem-ipsum
      * Show selection results
      *
      * @param  \Illuminate\Http\Request  $request
@@ -23,6 +24,9 @@ class LoremController extends Controller
      */
     public function submit(Request $request)
     {
+        $this->validate($request, [
+            'paragraph_count' => 'required|integer|between:1,99',
+        ]);
         $p = $request->input('paragraph_count');
         $generator = new Generator();
         // paragraphs will be # chosen by user in form

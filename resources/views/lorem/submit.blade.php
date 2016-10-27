@@ -17,10 +17,20 @@ such as a page specific stylesheets.
 
 @section('content')
     <h2>Lorem-Ipsum Generator.</h2>
+    @if($errors->get('paragraph_count'))
+        <ul>
+            @foreach($errors->get('paragraph_count') as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
+
     <form method='POST' action='/lorem-ipsum'>
         {{ csrf_field() }}
         <label for="paragraph_count"># of Paragraphs (Max 99)</label>
-        <input id="paragraph_count" type='number' name='paragraph_count' value="{{$p}}" min="1" max="99">
+        <!--  removed form html form validation to show server side validation-->
+        <!-- <input id="paragraph_count" type='number' name='paragraph_count' value="{{$p}}" min="1" max="99"> -->
+        <input id="paragraph_count" name='paragraph_count' value="{{$p}}" >
         <br>
         <input type='submit' value='Submit'>
     </form>

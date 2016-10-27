@@ -13,8 +13,7 @@
     <body>
         <header>
             <a href="#content" class="sr-only">skip to content</a>
-            <!--moon image by drkzin http://drkzin.deviantart.com/art/Moon-270917652 license: https://creativecommons.org/licenses/by-sa/3.0/ -->
-            <!-- <h1><img alt="crash dummy 1" src="/images/dummy80pxRight.png"/>Dummy Data<img alt="crash dummy 2" src="/images/dummy80px.png"/></h1> -->
+            <!-- public domain image https://commons.wikimedia.org/wiki/File:Testing22222.jpg -->
             <img alt="Dummy Data" src="/images/Dummy_Data.png"/>
             <nav>
                 <ul>
@@ -34,7 +33,6 @@
         <footer>
             <p>Created by SamGrise &copy; {{ date('Y') }}. Last Updated: October 27th 2016</p>
         </footer>
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
         {{-- Yield any page specific JS files or anything else you might want at the end of the body --}}
         @yield('body')
     </body>
