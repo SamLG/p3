@@ -18,10 +18,10 @@ such as a page specific stylesheets.
 @section('content')
     <h2>Use these easy tools, to quickly create dummy data for your site.</h2>
 
-    <h3>Lorem-Ipsum Generator</h2>
+    <h3>Lorem-Ipsum Generator</h3>
     <a href="/lorem-ipsum">Create lorem-ipsum text.</a>
 
-    <h3>Random User Generator</h2>
+    <h3>Random User Generator</h3>
     <a href="/random-user">Create random users.</a>
 @stop
 
