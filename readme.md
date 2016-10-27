@@ -7,7 +7,7 @@
 A site containing two tools for dummy data using Laravel framework and packages, forms, and csv files for data. The features available include: Lorem-Ipsum Generator in which you can choose # of paragraphs, Random User Generator in which you can select # or users, date of birth, phone #, email, location, profile.
 
 ## Demo
-****
+<https://youtu.be/mHBvsCW6_Vc>
 
 ## Details for teaching team
 I have server side validation and client side validation for both tools. I commented out client side validation for the lorem-ipsum generator so that the server side validation error reporting would be visible. I left the client side validation up for the random user generator, but have commented out a version where it is not there for ease of testing the server side validation.
