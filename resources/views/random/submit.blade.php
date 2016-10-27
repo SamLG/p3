@@ -25,6 +25,15 @@ such as a page specific stylesheets.
         <label for='dob'>Include Date of Birth</label>
         <input id="dob" type='checkbox' name='dob' {{$dob}}>
         <br>
+        <label for='phone'>Include Phone #</label>
+        <input id="phone" type='checkbox' name='phone' {{$phone}}>
+        <br>
+        <label for='email'>Include Email</label>
+        <input id="email" type='checkbox' name='email' {{$email}}>
+        <br>
+        <label for='location'>Include Location</label>
+        <input id="location" type='checkbox' name='location'{{$location}}>
+        <br>
         <label for='profile'>Include Profile</label>
         <input id="profile" type='checkbox' name='profile' {{$profile}}>
         <br>
@@ -36,6 +45,15 @@ such as a page specific stylesheets.
         echo '<h3>'.$user['name'].'</h3>';
         if ($dob) {
             echo '<p>Date of Birth: '.$user['dob'].'</p>';
+        }
+        if ($phone) {
+            echo '<p>Phone #: '.$user['phone'].'</p>';
+        }
+        if ($email) {
+            echo '<p>Email: '.$user['email'].'</p>';
+        }
+        if ($location) {
+            echo '<p>City: '.$user['location'].'</p>';
         }
         if ($profile) {
             echo '<p>Profile: '.$user['profile'].'</p>';

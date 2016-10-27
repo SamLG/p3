@@ -25,6 +25,15 @@ such as a page specific stylesheets.
         <label for='dob'>Include Date of Birth</label>
         <input id="dob" type='checkbox' name='dob'>
         <br>
+        <label for='phone'>Include Phone #</label>
+        <input id="phone" type='checkbox' name='phone'>
+        <br>
+        <label for='email'>Include Email</label>
+        <input id="email" type='checkbox' name='email'>
+        <br>
+        <label for='location'>Include Location</label>
+        <input id="location" type='checkbox' name='location'>
+        <br>
         <label for='profile'>Include Profile</label>
         <input id="profile" type='checkbox' name='profile'>
         <br>
